@@ -17,13 +17,17 @@
  */
 function addRandomFact() {
   const facts =
-      ['I was born on April 24th, 2000.', 'I learned Spanish before I learned English.', 'I have not cut the length of my hair since I graduated high school two years ago.', 
-      'I was named after Sean Connery, but I do not believe I have ever seen any of his movies.'];
+      [
+      'I was born on April 24th, 2000.',
+      'I learned Spanish before I learned English.',
+      'I have not cut the length of my hair since I graduated high school two years ago.', 
+      'I was named after Sean Connery, but I do not believe I have ever seen any of his movies.'
+      ];
 
   // Pick a random fact.
-  const greeting = facts[Math.floor(Math.random() * facts.length)];
+  const fact = facts[Math.floor(Math.random() * facts.length)];
 
   // Add it to the page.
-  const greetingContainer = document.getElementById('greeting-container');
-  greetingContainer.innerText = greeting;
+  const factContainer = document.querySelector('#fact-container');
+  factContainer.innerText = fact;
 }
