@@ -16,13 +16,12 @@
  * Adds a random fact to the page.
  */
 function addRandomFact() {
-  const facts =
-      [
+  const facts = [
       'I was born on April 24th, 2000.',
       'I learned Spanish before I learned English.',
       'I have not cut the length of my hair since I graduated high school two years ago.', 
-      'I was named after Sean Connery, but I do not believe I have ever seen any of his movies.'
-      ];
+      'I was named after Sean Connery, but I do not believe I have ever seen any of his movies.',
+  ];
 
   // Pick a random fact.
   const fact = facts[Math.floor(Math.random() * facts.length)];
