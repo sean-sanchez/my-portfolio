@@ -30,3 +30,12 @@ function addRandomFact() {
   const factContainer = document.querySelector('#fact-container');
   factContainer.innerText = fact;
 }
+
+/**
+ * Fetches a message from the server
+ */
+async function getMessage(){
+  const response = await fetch('/data');
+  const message = await response.text();
+  document.querySelector('#message-container').innerText = message;
+}
