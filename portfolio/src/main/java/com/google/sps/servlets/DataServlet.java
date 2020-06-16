@@ -15,6 +15,8 @@
 package com.google.sps.servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -26,7 +28,7 @@ public class DataServlet extends HttpServlet {
   
   private ArrayList<String> album;
 
-  @OVerride
+  @Override
   public void init(){
     album = new ArrayList<>();
     album.add("1. Call me if you need me");
@@ -38,6 +40,6 @@ public class DataServlet extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     response.setContentType("text/html;");
-    response.getWriter().println("<h1>Hello Sean Sanchez!</h1>");
+    response.getWriter().println(album);
   }
 }
