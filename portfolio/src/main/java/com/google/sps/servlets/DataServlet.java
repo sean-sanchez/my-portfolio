@@ -39,7 +39,8 @@ public class DataServlet extends HttpServlet {
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    String track = album.get((int) (Math.random() * album.size()));
     response.setContentType("text/html;");
-    response.getWriter().println(album);
+    response.getWriter().println(track);
   }
 }
