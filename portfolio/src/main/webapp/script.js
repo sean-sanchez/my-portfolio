@@ -34,8 +34,10 @@ function addRandomFact() {
 /**
  * Fetches a message from the server
  */
-async function getMessage(){
+async function getTrack(){
   const response = await fetch('/data');
-  const message = await response.text();
-  document.querySelector('#message-container').innerText = message;
+  const track = await response.text();
+  console.log(track);
+  document.querySelector('#track-container').innerText = track;
 }
+
