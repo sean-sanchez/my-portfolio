@@ -26,21 +26,25 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
   
-  private ArrayList<String> album;
+  private ArrayList<String> comments;
 
   @Override
   public void init(){
-    album = new ArrayList<>();
-    album.add("1. Call me if you need me");
-    album.add("2. You used to love me");
-    album.add("3. ILY");
-    album.add("4. Why you gotta do this to me");
+    comments = new ArrayList<>();
   }
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    String track = album.get((int) (Math.random() * album.size()));
+    String comment = comments.get((int) (Math.random() * comments.size()));
     response.setContentType("text/html;");
-    response.getWriter().println(track);
+    response.getWriter().println(comment);
+  }
+
+  @Override
+  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    // Get the comment from the text box
+    String text = request.getParameter("text-input");
+    comments.add(text);
+    response.sendRedirect("/index.html");
   }
 }
