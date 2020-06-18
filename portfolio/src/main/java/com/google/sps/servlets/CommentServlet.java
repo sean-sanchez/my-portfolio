@@ -47,7 +47,15 @@ public class CommentServlet extends HttpServlet {
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
     // Get the comment from the text box
     String text = request.getParameter("text-input");
-    comments.add(text);
+    long time = System.currentTimeMillis();
+
+    Entity commentEntity = new Entity("Comment");
+    commentEntity.setProperty("comment", text);
+    commentEntity.setProperty("timestamp", time);
+
+    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+    datastore.put(commentEntity);
+
     response.sendRedirect("/index.html");
   }
 }
