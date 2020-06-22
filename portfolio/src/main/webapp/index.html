@@ -51,10 +51,16 @@
       <button onclick="addRandomFact()">Want to know more?</button>
       <div id="fact-container"></div>
 
+      <form action="/comment" method="POST">
+        <p>Leave me a comment:</p>
+        <textarea name="text-input">Type your comment here</textarea>
+        <br><br>
+        <input type="submit"/>
+      </form>
           
-      <p>Click here for a track:</p>
-      <button onclick="getTrack()">Track</button>
-      <div id="track-container"></div>
-
+      <p>Click here for comments:</p>
+      <button onclick="getComments()">Comments</button>
+      <div id="comments-container"></div>
+      
     </div>
 </html>

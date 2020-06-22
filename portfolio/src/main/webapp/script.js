@@ -34,10 +34,14 @@ function addRandomFact() {
 /**
  * Fetches a message from the server
  */
-async function getTrack(){
-  const response = await fetch('/data');
-  const track = await response.text();
-  console.log(track);
-  document.querySelector('#track-container').innerText = track;
+async function getComments(){
+  const response = await fetch('/comment');
+  const comments = await response.json();
+  let text = "";
+  for(let i=0; i < comments.length; i++){
+    text = text + comments[i].text;
+    text = text + "\n";
+  }
+  document.querySelector('#comments-container').innerText = text;
 }
 
