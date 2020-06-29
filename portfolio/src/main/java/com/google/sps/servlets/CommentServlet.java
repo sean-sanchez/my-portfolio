@@ -52,9 +52,10 @@ public class CommentServlet extends HttpServlet {
     for (Entity entity : results.asIterable()){
       // Grab the parameters of each comment
       String text = (String) entity.getProperty("text");
+      String newtext = translate(text, code);
       long time = (long) entity.getProperty("time");
 
-      Comment comment = new Comment(text, time);
+      Comment comment = new Comment(newtext, time);
       comments.add(comment);
     }
 
@@ -78,5 +79,13 @@ public class CommentServlet extends HttpServlet {
     datastore.put(commentEntity);
 
     response.sendRedirect("/index.html");
+  }
+
+  public String translate(String text, String code){
+    Translate translate = TranslateOptions.getDefaultInstance().getService();
+    Translation translation = 
+      translate.translate(text, Translate.TranslateOption.targetLanguage(code));
+    String translatedText = translation.getTranslatedText();
+    return translatedText;
   }
 }
