@@ -35,6 +35,10 @@ function addRandomFact() {
  * Fetches a message from the server
  */
 async function getComments(){
+  const language = document.querySelector('#language').value;
+  fetch('/comment?language='+language,{
+    method: 'GET'
+  });
   const response = await fetch('/comment');
   const comments = await response.json();
   let text = "";
@@ -44,4 +48,3 @@ async function getComments(){
   }
   document.querySelector('#comments-container').innerText = text;
 }
-
