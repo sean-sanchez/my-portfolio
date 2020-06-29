@@ -85,7 +85,6 @@ public class CommentServlet extends HttpServlet {
     Translate translate = TranslateOptions.getDefaultInstance().getService();
     Translation translation = 
       translate.translate(text, Translate.TranslateOption.targetLanguage(code));
-    String translatedText = translation.getTranslatedText();
-    return translatedText;
+    return translation.getTranslatedText();
   }
 }
